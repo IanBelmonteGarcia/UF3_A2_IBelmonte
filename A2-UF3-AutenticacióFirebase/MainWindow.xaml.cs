@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Firebase.Auth.UI;
+using Firebase.Database;
+using Firebase.Auth.Providers;
+using Firebase.Auth.UI.Pages;
 
 namespace A2_UF3_AutenticacióFirebase
 {
@@ -25,6 +28,7 @@ namespace A2_UF3_AutenticacióFirebase
         public MainWindow()
         {
             InitializeComponent();
+            FirebaseUI.Instance.Client.SignOut();
             FirebaseUI.Instance.Client.AuthStateChanged += this.AuthStateChanged;
         }
 
@@ -35,17 +39,18 @@ namespace A2_UF3_AutenticacióFirebase
                 if (e.User == null)
                 {
                     //await FirebaseUI.Instance.Client.SignInAnonymouslyAsync();
-                    this.Frame.Navigate(new LogWindow());
+                    this.Frame.Navigate(new Login());
                 }
                 else if (e.User.IsAnonymous)
                 {
-                    this.Frame.Navigate(new LogWindow());
+                    this.Frame.Navigate(new Login());
                 }
-                else if ((this.Frame.Content == null || this.Frame.Content.GetType() != typeof(EditorWindow)))
+                else if ((this.Frame.Content == null || this.Frame.Content.GetType() != typeof(BDD)))
                 {
-                    this.Frame.Navigate(new LogWindow());
+                    this.Frame.Navigate(new BDD());
                 }
             });
+            
         }
     }
 }

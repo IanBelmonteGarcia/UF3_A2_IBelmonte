@@ -1,5 +1,4 @@
-﻿using Firebase.Auth;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Firebase.Database;
-using Firebase.Auth.UI;
 
 namespace A2_UF3_AutenticacióFirebase
 {
     /// <summary>
-    /// Lógica de interacción para LogWindow.xaml
+    /// Lógica de interacción para Login.xaml
     /// </summary>
-    public partial class LogWindow : Window
+    public partial class Login : Page
     {
-        public LogWindow()
-        {
+        public Login()
+        {   
             InitializeComponent();
         }
     }

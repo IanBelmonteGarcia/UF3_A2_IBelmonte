@@ -10,29 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Firebase.Auth;
-using Firebase.Auth.UI;
 
 namespace A2_UF3_AutenticacióFirebase
 {
     /// <summary>
-    /// Lógica de interacción para EditorWindow.xaml
+    /// Lógica de interacción para BDD.xaml
     /// </summary>
-    public partial class EditorWindow : Window
+    public partial class BDD : Page
     {
-        public EditorWindow()
+        public BDD()
         {
             InitializeComponent();
         }
-        private void SignOutClick(object sender, RoutedEventArgs e)
-        {
-            FirebaseUI.Instance.Client.SignOut();
-        }
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }
