@@ -9,17 +9,9 @@
       Title="BDD">
 
     <DockPanel Background="Black">
-        <Grid DockPanel.Dock="Top" Background="DodgerBlue" Margin="10,10,10,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.ColumnSpan="2" FontWeight="Bold" FontSize="20" FontFamily="Arial" Padding="5" Grid.Column="0" Text="FIREBASE CLOUD MANAGER" HorizontalAlignment="Left"/>
-            <Button Grid.Column="2" Content="Log Out" Margin="5" Name="btnLogOut" Click="btnLogOut_Click"/>
-        </Grid>
-        
-        <Grid Background="Black" DockPanel.Dock="Top">
+        <TextBlock  DockPanel.Dock="Top" Background="DodgerBlue" Margin="10,10,10,0" FontWeight="Bold" FontSize="20" FontFamily="Arial" Padding="5" Text="FIREBASE CLOUD MANAGER"/>
+
+            <Grid Background="Black" DockPanel.Dock="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -37,7 +29,7 @@
                     <TextBox DockPanel.Dock="Top" Margin="5" Name="cDate"/>
                     <TextBlock DockPanel.Dock="Top" Margin="5" Text="Choose File to Upload:"/>
                     <Button DockPanel.Dock="Top" Content="Choose" Margin="5"/>
-                    <Button DockPanel.Dock="Bottom" Content="Create" Margin="5"/>
+                    <Button DockPanel.Dock="Bottom" Content="Create" Margin="5" Name="btnCreate" Click="btnCreate_Click"/>
                     <TextBox DockPanel.Dock="Top" Margin="5" Name="cImg"/>
                 </DockPanel>
             </Grid>
@@ -52,7 +44,7 @@
                     <TextBlock DockPanel.Dock="Left" Text="Search by name: " VerticalAlignment="Center"/>
                     <Button DockPanel.Dock="Left" Content="Search" Margin="5"/>
                 </DockPanel>
-                <DataGrid Grid.RowSpan="3" Grid.Row="1">
+                <DataGrid Grid.RowSpan="3" Grid.Row="1" Name="lstCharacters">
 
                 </DataGrid>
             </Grid>

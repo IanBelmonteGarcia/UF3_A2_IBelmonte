@@ -18,6 +18,14 @@ namespace A2_UF3_AutenticacióFirebase
         public string Serie { get {  return serie; } set {  serie = value; } }
         public string Data { get { return data; } set { data = value; } }
         public string Url { get { return url; } set { url = value; } }
+        public Character(string nom, string descripcio, string serie, string data, string url)
+        {
+            this.nom = nom;
+            this.descripcio = descripcio;
+            this.serie = serie;
+            this.data = data;
+            this.url = url;
+        }
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,11 +24,20 @@ namespace A2_UF3_AutenticacióFirebase
         public BDD()
         {
             InitializeComponent();
+            LoadCharacters();
+        }
+        public CharacterService characterService = new CharacterService();
+        private async Task LoadCharacters()
+        {
+            var characters = await characterService.GetCharacters();
+            lstCharacters.ItemsSource = characterService.GetAllCharacters();
         }
 
-        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        private async void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-           
+
+            Character character = new Character(cName.Text, cDesc.Text, cShow.Text, cDate.Text, cImg.Text);
+            await characterService.AddCharacter(character);
         }
     }
 }

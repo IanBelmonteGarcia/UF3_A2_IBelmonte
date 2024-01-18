@@ -15,13 +15,26 @@ namespace A2_UF3_AutenticacióFirebase
         private readonly FirebaseClient firebaseClient;
         public CharacterService()
         {
-            firebaseClient = new FirebaseClient(FirebaseDatabaseUrl);
+            firebaseClient = ClientCreator.GetFirebaseClient(FirebaseDatabaseUrl, "2Ex9nEJ9vIcm4j8gB9SNN5e0Hb33");
         }
-        public async Task AddStudent(Character character)
+        public async Task AddCharacter(Character character)
         {
             await firebaseClient
             .Child("Characters")
             .PostAsync(character);
+        }
+        public async Task<List<Character>> GetCharacters()
+        {
+            var characters = await firebaseClient.Child("Characters").OnceAsync<Character>();
+            foreach (var character in characters)
+            {
+                character.Object.Nom = character.Key;
+            }
+            return characters.Select(firebaseObject => firebaseObject.Object).ToList();
+        }
+        public List<Character> GetAllCharacters() 
+        {
+            return GetCharacters().Result;
         }
     }
 }
